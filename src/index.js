@@ -24,7 +24,6 @@ function handleSubmit(event) {
 
   event.preventDefault();
   startPage = 1;
-  loadBtn.style.display = 'block';
   gallery.innerHTML = '';
 
   getPhotos();
@@ -36,7 +35,7 @@ async function getPhotos() {
     startPage,
     limitPerPage
   );
-  console.log(totalHits, hits);
+ 
   try {
     loadBtn.style.display = 'block';
     const totalPages = totalHits / limitPerPage;
@@ -47,7 +46,7 @@ async function getPhotos() {
     if (!hits.length) {
       throw new Error();
     }
-    console.log(startPage);
+    
 
     if (startPage >= totalPages) {
       Notiflix.Notify.warning(`These are last photos`);
